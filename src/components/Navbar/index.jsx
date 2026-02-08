@@ -1,17 +1,18 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 export default function Navbar() {
   return (
     <nav>
+      <h1>Linen</h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <Link to="/products">Products</Link>
+          <NavLink to="/products">Products</NavLink>
         </li>
         <li>
-          <Link to="/cart">Cart</Link>
+          <NavLink to="/cart">Cart</NavLink>
         </li>
       </ul>
     </nav>
