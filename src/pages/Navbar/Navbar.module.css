@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+}
+
+.title {
+  font-family: "DM Serif Text", serif;
+  font-size: 3.5rem;
+}
+
+.list {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.listItem {
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+}
+
+.listItem[aria-current="page"] {
+  background-color: var(--accent-light);
+  border-radius: var(--border-radius);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .list {
+    gap: 0.75rem;
+  }
+
+  .listItem {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+  }
+}

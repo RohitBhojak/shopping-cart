@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+:root {
+  --bg: rgb(236, 232, 223);
+  --bg-light: rgb(252, 248, 240);
+  --accent: rgb(126, 144, 122);
+  --accent-light: rgb(210, 212, 198);
+  --text: rgb(55, 55, 45);
+  --border-radius: 2rem;
+}
+
+:root.dark {
+  --bg: rgb(36, 38, 42);
+  --bg-light: rgb(50, 54, 60);
+  --accent: rgb(42, 60, 42);
+  --accent-light: rgb(64, 84, 66);
+  --text: rgb(232, 226, 198);
+}
+
+body {
+  background-color: var(--bg);
+  font-family: "Outfit", sans-serif;
+  color: var(--text);
+}
