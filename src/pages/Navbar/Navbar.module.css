@@ -7,7 +7,8 @@
 
 .title {
   font-family: "DM Serif Text", serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 .list {
@@ -15,7 +16,12 @@
   gap: 1.5rem;
 }
 
+.menuButton {
+  display: none;
+}
+
 .listItem {
+  display: block;
   font-size: 1.25rem;
   padding: 0.5rem 1rem;
 }
@@ -25,21 +31,42 @@
   border-radius: var(--border-radius);
 }
 
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.themeToggle,
+.menuButton {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 2rem;
   }
 
   .title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .list {
-    gap: 0.75rem;
+    display: none;
   }
 
-  .listItem {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
+  .menuButton {
+    display: block;
+  }
+
+  .open {
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 }
