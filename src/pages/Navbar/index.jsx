@@ -38,7 +38,12 @@ export default function Navbar({ theme, toggleTheme }) {
         <button className={styles.themeToggle} onClick={toggleTheme}>
           {theme === "light" ? <Moon /> : <Sun />}
         </button>
-        <button className={styles.menuButton} onClick={toggleMenu}>
+        <button
+          className={styles.menuButton}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+        >
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
