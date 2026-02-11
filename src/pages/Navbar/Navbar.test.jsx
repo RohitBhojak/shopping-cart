@@ -1,14 +1,14 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import Navbar from ".";
 import styles from "./Navbar.module.css";
 import userEvent from "@testing-library/user-event";
 
-const renderNavbar = (route = "/") =>
+const renderNavbar = (route = "/", theme = "light", toggleTheme = vi.fn()) =>
   render(
     <MemoryRouter initialEntries={[route]}>
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
     </MemoryRouter>,
   );
 
@@ -75,5 +75,34 @@ describe("Navbar mobile screen", () => {
     await user.click(productsLink);
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
     expect(screen.getByRole("list")).not.toHaveClass(styles.open);
+  });
+});
+
+describe("Theme toggle", () => {
+  it("renders theme toggle button", () => {
+    renderNavbar();
+    const themeToggleButton = screen.getByRole("button", { name: /toggle theme/i });
+    expect(themeToggleButton).toBeInTheDocument();
+  });
+
+  it("renders moon icon when theme is light", () => {
+    renderNavbar("/", "light");
+    expect(screen.getByTestId("moon-icon")).toBeInTheDocument();
+  });
+
+  it("renders sun icon when theme is dark", () => {
+    renderNavbar("/", "dark");
+    expect(screen.getByTestId("sun-icon")).toBeInTheDocument();
+  });
+
+  it("calls toggleTheme on click", async () => {
+    const user = userEvent.setup();
+    const toggleTheme = vi.fn();
+    renderNavbar("/", "light", toggleTheme);
+    const themeToggleButton = screen.getByRole("button", { name: /toggle theme/i });
+
+    await user.click(themeToggleButton);
+
+    expect(toggleTheme).toHaveBeenCalled();
   });
 });

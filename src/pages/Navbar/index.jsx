@@ -35,8 +35,8 @@ export default function Navbar({ theme, toggleTheme }) {
         </li>
       </ul>
       <div className={styles.actions}>
-        <button className={styles.themeToggle} onClick={toggleTheme}>
-          {theme === "light" ? <Moon /> : <Sun />}
+        <button className={styles.themeToggle} onClick={toggleTheme} aria-label="Toggle theme">
+          {theme === "light" ? <Moon data-testid="moon-icon" /> : <Sun data-testid="sun-icon" />}
         </button>
         <button
           className={styles.menuButton}
