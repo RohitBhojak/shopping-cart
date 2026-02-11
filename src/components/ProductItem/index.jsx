@@ -1,4 +1,4 @@
-export default function ProductItem(product) {
+export default function ProductItem({ product }) {
   return (
     <div>
       <img src={product.image} height={100} width={100} />
