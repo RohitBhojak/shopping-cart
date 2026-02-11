@@ -1,38 +1,40 @@
 import { useState, useEffect } from "react";
 
-export default function useProducts() {
-  const [products, setProducts] = useState(null);
+export default function useFetch(url) {
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
-    const getProducts = async () => {
+
+    const getData = async () => {
+      setIsLoading(true);
+      setError(null);
+
       try {
-        const response = await fetch("https://fakestoreapi.com/products", {
+        const response = await fetch(url, {
           signal: controller.signal,
         });
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);
         }
         const data = await response.json();
-        setProducts(data.filter((item) => item.category !== "electronics"));
+        setData(data);
       } catch (error) {
-        if (error.name === "AbortError") {
-          console.log("Abort");
-          return;
+        if (error.name !== "AbortError") {
+          setError(error.message);
+          setData(null);
         }
-        setError(error);
-        setProducts(null);
       } finally {
         setIsLoading(false);
       }
     };
 
-    getProducts();
+    getData();
 
     return () => controller.abort();
-  }, []);
+  }, [url]);
 
-  return { products, isLoading, error };
+  return { data, isLoading, error };
 }

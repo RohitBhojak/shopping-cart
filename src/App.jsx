@@ -11,6 +11,7 @@ export default function App() {
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
+
   return (
     <>
       <Navbar theme={theme} toggleTheme={toggleTheme} />

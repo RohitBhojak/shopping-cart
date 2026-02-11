@@ -1,17 +1,18 @@
 // import { useState, useEffect } from "react";
-import useProducts from "../../hooks/useProducts";
+import useFetch from "../../hooks/useFetch";
 import ProductItem from "../../components/ProductItem";
 
-export default function Products() {
-  const { products, isLoading, error } = useProducts("https://fakestoreapi.com/products");
-  const { products: categories } = useProducts("https://fakestoreapi.com/products/categories");
+const url = "https://fakestoreapi.com/products";
 
-  console.log(categories);
+export default function Products() {
+  const { data, isLoading, error } = useFetch(url);
+  const products = data?.filter((item) => item.category !== "electronics");
+
   return (
     <div>
       {isLoading && <div>Loading</div>}
       {error && <div>{error}</div>}
-      {products && <>{products.map((product) => ProductItem(product))}</>}
+      {products && products.map((product) => <ProductItem key={product.id} product={product} />)}
     </div>
   );
 }
