@@ -8,12 +8,12 @@ export default function QuantityInput({ productId }) {
     dispatch({ type, productId });
   };
 
-  return cart[productId] ? (
+  return productId in cart ? (
     <div>
       <button onClick={() => updateCart("decremented_count")} aria-label="Decrement quantity">
         <Minus />
       </button>
-      <NumberInput productId={productId} />
+      <NumberInput key={cart[productId]} productId={productId} />
       <button onClick={() => updateCart("incremented_count")} aria-label="Increment quantity">
         <Plus />
       </button>
