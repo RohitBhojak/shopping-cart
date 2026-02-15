@@ -6,6 +6,7 @@ export default function NumberInput({ productId }) {
   const [count, setCount] = useState(cart[productId] || "");
   return (
     <input
+      aria-label="Quantity"
       inputMode="numeric"
       value={count}
       onChange={(e) => {
