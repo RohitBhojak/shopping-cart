@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router";
 import NumberInput from "../NumberInput";
+import { Minus, Plus, Trash2 } from "lucide-react";
 
 export default function QuantityInput({ productId }) {
   const { cart, dispatch } = useOutletContext();
@@ -8,13 +9,19 @@ export default function QuantityInput({ productId }) {
   };
 
   return cart[productId] ? (
-    <button onClick={() => updateCart("added_to_cart")}>Add to Cart</button>
-  ) : (
     <div>
-      <button onClick={() => updateCart("decremented_count")}>-</button>
+      <button onClick={() => updateCart("decremented_count")} aria-label="Decrement quantity">
+        <Minus />
+      </button>
       <NumberInput productId={productId} />
-      <button onClick={() => updateCart("incremented_count")}>+</button>
-      <button onClick={() => updateCart("deleted_from_cart")}>Delete</button>
+      <button onClick={() => updateCart("incremented_count")} aria-label="Increment quantity">
+        <Plus />
+      </button>
+      <button onClick={() => updateCart("removed_from_cart")} aria-label="Remove from cart">
+        <Trash2 />
+      </button>
     </div>
+  ) : (
+    <button onClick={() => updateCart("added_to_cart")}>Add to Cart</button>
   );
 }

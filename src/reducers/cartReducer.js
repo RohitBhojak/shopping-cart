@@ -20,7 +20,7 @@ export default function cartReducer(cart, action) {
     case "set_count":
       return updateCount(Number(action.count));
 
-    case "deleted_from_cart":
+    case "removed_from_cart":
       return updateCount(0);
 
     default:
