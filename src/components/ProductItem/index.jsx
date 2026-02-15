@@ -1,8 +1,10 @@
 import { useReducer } from "react";
 import countReducer from "../../reducers/countReducer";
+import { useOutletContext } from "react-router";
 
 export default function ProductItem({ product }) {
-  const [count, dispatch] = useReducer(countReducer, null);
+  const { cart, setCart } = useOutletContext();
+  const [count, dispatch] = useReducer(countReducer, cart[product.id]?.count || null);
   return (
     <div>
       <img src={product.image} height={100} width={100} />
@@ -17,7 +19,6 @@ export default function ProductItem({ product }) {
           <input
             inputMode="numeric"
             value={count}
-            min={0}
             onChange={(e) => {
               const value = e.target.value;
               if (value === "" || /^\d+$/.test(value))
@@ -26,6 +27,7 @@ export default function ProductItem({ product }) {
             onBlur={(e) => dispatch({ type: "set_count", count: e.target.value })}
           />
           <button onClick={() => dispatch({ type: "incremented_count" })}>+</button>
+          <button onClick={() => dispatch({ type: "delete" })}>Delete</button>
         </div>
       )}
     </div>

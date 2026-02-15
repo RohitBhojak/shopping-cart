@@ -5,6 +5,7 @@ import useTheme from "./hooks/useTheme";
 
 export default function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [cart, setCart] = useState(localStorage.getItem("cart") || {});
 
   useTheme(theme);
 
@@ -15,7 +16,7 @@ export default function App() {
   return (
     <>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <Outlet />
+      <Outlet context={{ cart, setCart }} />
     </>
   );
 }
