@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  background-color: var(--accent-light);
+  width: 80%;
+  padding: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-light);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--text);
+}
+
+.delBtn {
+  padding: 0.5rem;
+  border-radius: 100%;
+  background-color: var(--accent-light);
+  color: var(--text);
+  border: none;
+  cursor: pointer;
+}

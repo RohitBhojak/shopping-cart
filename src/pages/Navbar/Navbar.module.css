@@ -54,7 +54,7 @@
 }
 
 .listItem[aria-current="page"] .count {
-  background-color: var(--accent);
+  background-color: var(--bg);
 }
 
 @media (max-width: 768px) {

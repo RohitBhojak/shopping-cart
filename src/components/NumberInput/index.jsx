@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router";
+import styles from "./NumberInput.module.css";
 
 export default function NumberInput({ productId }) {
   const { cart, dispatch } = useOutletContext();
@@ -9,6 +10,7 @@ export default function NumberInput({ productId }) {
       aria-label="Quantity"
       inputMode="numeric"
       value={count}
+      className={styles.input}
       onChange={(e) => {
         const value = e.target.value;
         if (/^\d*$/.test(value)) setCount(value); // Only 0 or more digits are allowed

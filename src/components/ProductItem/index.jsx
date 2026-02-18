@@ -1,10 +1,26 @@
 import QuantityInput from "../QuantityInput";
+import { Rating } from "react-simple-star-rating";
+import styles from "./ProductItem.module.css";
 
 export default function ProductItem({ product }) {
   return (
-    <div>
-      <img src={product.image} height={100} width={100} alt={product.title} />
+    <div className={styles.card}>
+      <div className={styles.imageContainer}>
+        <img src={product.image} height={100} width={100} alt={product.title} />
+      </div>
       <span>{product.title}</span>
+      <div>
+        <Rating
+          initialValue={product.rating?.rate || 0}
+          readonly={true}
+          allowFraction={true}
+          size={20}
+          fillColor="var(--star-filled)"
+          emptyColor="var(--star-empty)"
+          SVGstyle={{ display: "inline" }}
+        />
+        <span>({product.rating?.count || 0})</span>
+      </div>
       <span>{product.price}</span>
       <QuantityInput productId={product.id} />
     </div>

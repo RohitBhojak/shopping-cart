@@ -7,6 +7,8 @@
   --accent-light: rgb(210, 212, 198);
   --text: rgb(55, 55, 45);
   --border-radius: 2rem;
+  --star-filled: var(--accent);
+  --star-empty: var(--accent-light);
 }
 
 :root.dark {
@@ -15,6 +17,8 @@
   --accent: rgb(42, 60, 42);
   --accent-light: rgb(64, 84, 66);
   --text: rgb(232, 226, 198);
+  --star-filled: rgb(110, 130, 105);
+  --star-empty: rgb(60, 65, 70);
 }
 
 body {
