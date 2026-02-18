@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar theme={theme} toggleTheme={toggleTheme} cartSize={Object.keys(cart).length} />
       <Outlet context={{ cart, dispatch }} />
     </>
   );

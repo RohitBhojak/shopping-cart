@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar({ theme, toggleTheme, cartSize }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -31,6 +31,7 @@ export default function Navbar({ theme, toggleTheme }) {
         <li>
           <NavLink className={styles.listItem} to="/cart" onClick={closeMenu}>
             Cart
+            {cartSize > 0 && <span className={styles.count}>{cartSize}</span>}
           </NavLink>
         </li>
       </ul>
@@ -38,12 +39,7 @@ export default function Navbar({ theme, toggleTheme }) {
         <button className={styles.themeToggle} onClick={toggleTheme} aria-label="Toggle theme">
           {theme === "light" ? <Moon data-testid="moon-icon" /> : <Sun data-testid="sun-icon" />}
         </button>
-        <button
-          className={styles.menuButton}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
+        <button className={styles.menuButton} onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={isOpen}>
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>

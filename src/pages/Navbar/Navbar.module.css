@@ -21,7 +21,8 @@
 }
 
 .listItem {
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: 1.25rem;
   padding: 0.5rem 1rem;
 }
@@ -39,6 +40,21 @@
 .themeToggle,
 .menuButton {
   cursor: pointer;
+}
+
+.count {
+  margin-left: 1rem;
+  display: inline-block;
+  font-size: 0.8em;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  text-align: center;
+  background-color: var(--accent-light);
+}
+
+.listItem[aria-current="page"] .count {
+  background-color: var(--accent);
 }
 
 @media (max-width: 768px) {
