@@ -5,10 +5,10 @@ import Navbar from ".";
 import styles from "./Navbar.module.css";
 import userEvent from "@testing-library/user-event";
 
-const renderNavbar = (route = "/", theme = "light", toggleTheme = vi.fn()) =>
+const renderNavbar = (route = "/", theme = "light", toggleTheme = vi.fn(), cartSize = 0) =>
   render(
     <MemoryRouter initialEntries={[route]}>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar theme={theme} toggleTheme={toggleTheme} cartSize={cartSize} />
     </MemoryRouter>,
   );
 
@@ -104,5 +104,15 @@ describe("Theme toggle", () => {
     await user.click(themeToggleButton);
 
     expect(toggleTheme).toHaveBeenCalled();
+  });
+
+  it("does not render cart count when cart is empty", () => {
+    renderNavbar("/", "light", vi.fn(), 0);
+    expect(screen.queryByRole("status", { name: /cart count/i })).not.toBeInTheDocument();
+  });
+
+  it("renders cart count when cart is not empty", () => {
+    renderNavbar("/", "light", vi.fn(), 12);
+    expect(screen.getByRole("status", { name: /cart count/i })).toBeInTheDocument();
   });
 });

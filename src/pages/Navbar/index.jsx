@@ -31,7 +31,11 @@ export default function Navbar({ theme, toggleTheme, cartSize }) {
         <li>
           <NavLink className={styles.listItem} to="/cart" onClick={closeMenu}>
             Cart
-            {cartSize > 0 && <span className={styles.count}>{cartSize}</span>}
+            {cartSize > 0 && (
+              <span className={styles.count} role="status" aria-label="Cart count">
+                {cartSize}
+              </span>
+            )}
           </NavLink>
         </li>
       </ul>
