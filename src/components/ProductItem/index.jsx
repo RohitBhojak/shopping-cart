@@ -1,8 +1,10 @@
 import QuantityInput from "../QuantityInput";
 import { Rating } from "react-simple-star-rating";
 import styles from "./ProductItem.module.css";
+import currency from "currency.js";
 
 export default function ProductItem({ product }) {
+  const price = currency(product.price * 100, { symbol: "₹", useVedic: true }).format();
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
@@ -21,7 +23,7 @@ export default function ProductItem({ product }) {
         />
         <span>({product.rating?.count || 0})</span>
       </div>
-      <span>{product.price}</span>
+      <span>{price}</span>
       <QuantityInput productId={product.id} />
     </div>
   );
