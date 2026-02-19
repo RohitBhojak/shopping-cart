@@ -12,11 +12,19 @@ export default function QuantityInput({ productId }) {
   return productId in cart ? (
     <div className={styles.container}>
       <div className={styles.controls}>
-        <button onClick={() => updateCart("decremented_count")} aria-label="Decrement quantity">
+        <button
+          className={styles.btn}
+          onClick={() => updateCart("decremented_count")}
+          aria-label="Decrement quantity"
+        >
           <Minus />
         </button>
         <NumberInput key={cart[productId]} productId={productId} />
-        <button onClick={() => updateCart("incremented_count")} aria-label="Increment quantity">
+        <button
+          className={styles.btn}
+          onClick={() => updateCart("incremented_count")}
+          aria-label="Increment quantity"
+        >
           <Plus />
         </button>
       </div>
@@ -29,7 +37,7 @@ export default function QuantityInput({ productId }) {
       </button>
     </div>
   ) : (
-    <button className={styles.btn} onClick={() => updateCart("added_to_cart")}>
+    <button className={styles.addBtn} onClick={() => updateCart("added_to_cart")}>
       Add to Cart
     </button>
   );

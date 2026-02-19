@@ -9,12 +9,12 @@ export default function ProductItem({ product }) {
         <img src={product.image} height={100} width={100} alt={product.title} />
       </div>
       <span>{product.title}</span>
-      <div>
+      <div className={styles.ratingContainer}>
         <Rating
           initialValue={product.rating?.rate || 0}
           readonly={true}
           allowFraction={true}
-          size={20}
+          size={24}
           fillColor="var(--star-filled)"
           emptyColor="var(--star-empty)"
           SVGstyle={{ display: "inline" }}
