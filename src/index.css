@@ -6,7 +6,7 @@
   --accent: rgb(126, 144, 122);
   --accent-light: rgb(210, 212, 198);
   --text: rgb(55, 55, 45);
-  --border-radius: 2rem;
+  --border-radius: 1.75rem;
   --star-filled: var(--accent);
   --star-empty: var(--accent-light);
   --shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);

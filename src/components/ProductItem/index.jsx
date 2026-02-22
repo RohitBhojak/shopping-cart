@@ -10,7 +10,7 @@ export default function ProductItem({ product }) {
       <div className={styles.imageContainer}>
         <img src={product.image} height={100} width={100} alt={product.title} />
       </div>
-      <span>{product.title}</span>
+      <div className={styles.title}>{product.title}</div>
       <div className={styles.ratingContainer}>
         <Rating
           initialValue={product.rating?.rate || 0}

@@ -2,6 +2,7 @@
 import useFetch from "../../hooks/useFetch";
 import ProductItem from "../../components/ProductItem";
 import styles from "./Products.module.css";
+import ProductItemSkeleton from "../../components/ProductItem/ProductItemSkeleton";
 
 const url = "https://fakestoreapi.com/products";
 
@@ -11,7 +12,10 @@ export default function Products() {
 
   return (
     <div className={styles.container}>
-      {isLoading && <div>Loading</div>}
+      {isLoading &&
+        Array(15)
+          .fill(0)
+          .map((_, i) => <ProductItemSkeleton key={i} />)}
       {error && <div>{error}</div>}
       {products && products.map((product) => <ProductItem key={product.id} product={product} />)}
     </div>
