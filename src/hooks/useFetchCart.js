@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const url = "https://fakestoreapi.com/products/";
+const url = "https://fakestoreapi.com/products";
 const DELIMITER = ",";
 
 export default function useFetchCart(cart) {

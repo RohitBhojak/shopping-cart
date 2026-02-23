@@ -81,7 +81,7 @@ describe("ProductItem", () => {
     });
   });
 
-  it("calls dispatch to increment quantity when '+' is clicked", async () => {
+  it("dispatches incremented_count when + button is clicked", async () => {
     const mockDispatch = vi.fn();
     const user = userEvent.setup();
 

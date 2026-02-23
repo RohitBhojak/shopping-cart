@@ -11,13 +11,13 @@ export default function Products() {
   const products = data?.filter((item) => item.category !== "electronics");
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       {isLoading &&
         Array(15)
           .fill(0)
           .map((_, i) => <ProductItemSkeleton key={i} />)}
       {error && <div>{error}</div>}
       {products && products.map((product) => <ProductItem key={product.id} product={product} />)}
-    </div>
+    </main>
   );
 }
