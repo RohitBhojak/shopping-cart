@@ -34,7 +34,6 @@ export default function useFetchCart(cart) {
 
         const results = await Promise.all(promises);
         setData(results);
-        console.log(results);
       } catch (error) {
         if (error.name !== "AbortError") {
           setError(error.message);

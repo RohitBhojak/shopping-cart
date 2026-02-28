@@ -8,7 +8,7 @@ export default function ProductItem({ product }) {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        <img src={product.image} height={100} width={100} alt={product.title} />
+        <img src={product.image} alt={product.title} />
       </div>
       <div className={styles.title}>{product.title}</div>
       <div className={styles.ratingContainer}>

@@ -3,28 +3,20 @@ import useFetchCart from "../../hooks/useFetchCart";
 import { useOutletContext } from "react-router";
 import CartItem from "../../components/CartItem";
 import CartItemSkeleton from "../../components/CartItem/CartItemSkeleton";
-import { formatINR } from "../../helper/currency";
+import generateBill from "../../helper/generateBill";
+import Bill from "../../components/Bill.jsx";
+
+const discountPercent = 10;
+const shippingCharge = 1; // dollar
 
 export default function Cart() {
   const { cart } = useOutletContext();
   const { data: cartItems, isLoading, error } = useFetchCart(cart);
 
-  const generateBill = (discountPercent, shippingRaw) => {
-    const subTotalRaw = cartItems.reduce((total, item) => total + item.price * cart[item.id], 0);
-    const discountRaw = (subTotalRaw * discountPercent) / 100;
-    const totalRaw = subTotalRaw - discountRaw + shippingRaw;
-
-    const subTotal = formatINR(subTotalRaw);
-    const discount = formatINR(discountRaw);
-    const total = formatINR(totalRaw);
-    const shipping = formatINR(shippingRaw);
-    return { subTotal, discount, shipping, total };
-  };
-
-  const bill = generateBill(10, 1);
+  const bill = generateBill(cart, cartItems, discountPercent, shippingCharge);
 
   return (
-    <main>
+    <main className={styles.container}>
       <div className={styles.cartContainer}>
         {isLoading && Object.keys(cart).map((id) => <CartItemSkeleton key={id} />)}
         {error && <div>{error}</div>}
@@ -35,25 +27,7 @@ export default function Cart() {
           )}
       </div>
 
-      <div className={styles.breakdown}>
-        <div>
-          <span>Subtotal</span>
-          <span>{bill.subTotal}</span>
-        </div>
-        <div>
-          <span>Discount</span>
-          <span>{bill.discount}</span>
-        </div>
-        <div>
-          <span>Shipping</span>
-          <span>{bill.shipping}</span>
-        </div>
-        <div>
-          <span>Total Amount</span>
-          <span>{bill.total}</span>
-        </div>
-        <button>Checkout</button>
-      </div>
+      <Bill bill={bill} />
     </main>
   );
 }

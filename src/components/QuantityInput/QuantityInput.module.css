@@ -6,6 +6,7 @@
 
 .controls {
   display: flex;
+  width: 100%;
   align-items: center;
   border-radius: var(--border-radius);
   background-color: var(--accent-light);
