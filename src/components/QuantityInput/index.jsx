@@ -19,7 +19,7 @@ export default function QuantityInput({ productId }) {
         >
           <Minus />
         </button>
-        <NumberInput key={cart[productId]} productId={productId} />
+        <NumberInput productId={productId} />
         <button
           className={styles.btn}
           onClick={() => updateCart("incremented_count")}
