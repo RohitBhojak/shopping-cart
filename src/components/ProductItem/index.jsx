@@ -1,10 +1,10 @@
 import QuantityInput from "../QuantityInput";
 import { Rating } from "react-simple-star-rating";
 import styles from "./ProductItem.module.css";
-import currency from "currency.js";
+import { formatINR } from "../../helper/currency";
 
 export default function ProductItem({ product }) {
-  const price = currency(product.price * 100, { symbol: "₹", useVedic: true }).format();
+  const price = formatINR(product.price);
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
