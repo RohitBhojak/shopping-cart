@@ -23,6 +23,9 @@ export default function cartReducer(cart, action) {
     case "removed_from_cart":
       return updateCount(0);
 
+    case "empty_cart":
+      return {};
+
     default:
       return cart;
   }

@@ -23,3 +23,19 @@
 .btn {
   composes: addBtn from "../../../components/QuantityInput/QuantityInput.module.css";
 }
+
+/* Modal */
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.check {
+  color: var(--text);
+  background-color: var(--accent-light);
+  border-radius: 100%;
+  padding: 1rem;
+}

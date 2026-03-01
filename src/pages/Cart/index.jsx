@@ -14,6 +14,7 @@ const shippingCharge = 1; // dollar
 export default function Cart() {
   const { cart } = useOutletContext();
   const { data: cartItems, isLoading, error } = useFetchCart(cart);
+
   if (cart && Object.keys(cart).length === 0) return <EmptyCart />;
 
   const bill =
