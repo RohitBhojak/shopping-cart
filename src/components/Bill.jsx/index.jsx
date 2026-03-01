@@ -4,7 +4,7 @@ export default function Bill({ bill }) {
   return (
     <div className={styles.container}>
       {bill.items.map((item) => (
-        <div key={item.label} className="flex justify-between">
+        <div key={item.label} className={styles.detail}>
           <span>{item.label}</span>
           <span>{item.value}</span>
         </div>
@@ -12,7 +12,7 @@ export default function Bill({ bill }) {
 
       <hr />
 
-      <div className="flex justify-between">
+      <div className={styles.total}>
         <span>Total Amount</span>
         <span>{bill.total}</span>
       </div>
