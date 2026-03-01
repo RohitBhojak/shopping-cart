@@ -3,14 +3,14 @@ import NumberInput from "../NumberInput";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import styles from "./QuantityInput.module.css";
 
-export default function QuantityInput({ productId }) {
+export default function QuantityInput({ productId, column = false }) {
   const { cart, dispatch } = useOutletContext();
   const updateCart = (type) => {
     dispatch({ type, productId });
   };
 
   return productId in cart ? (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${column ? "flex-col" : ""}`}>
       <div className={styles.controls}>
         <button
           className={styles.btn}
@@ -29,7 +29,7 @@ export default function QuantityInput({ productId }) {
         </button>
       </div>
       <button
-        className={styles.delBtn}
+        className={`${column ? styles.addBtn : styles.delBtn}`}
         onClick={() => updateCart("removed_from_cart")}
         aria-label="Remove from cart"
       >

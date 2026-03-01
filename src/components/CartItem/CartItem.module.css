@@ -24,6 +24,7 @@
   justify-content: space-between;
   padding: 0.5rem;
   flex: 1;
+  min-width: 120px;
 }
 
 .buttonContainer {
@@ -39,6 +40,6 @@
 
 @media screen and (max-width: 768px) {
   .buttonContainer {
-    width: 150px;
+    width: 100px;
   }
 }

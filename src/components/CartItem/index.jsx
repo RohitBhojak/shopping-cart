@@ -14,7 +14,7 @@ export default function CartItem({ product }) {
         <span>{price}</span>
       </div>
       <div className={styles.buttonContainer}>
-        <QuantityInput productId={product.id} />
+        <QuantityInput productId={product.id} column={true} />
       </div>
     </div>
   );
