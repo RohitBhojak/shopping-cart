@@ -7,8 +7,7 @@ import ProductItemSkeleton from "./ProductItem/ProductItemSkeleton";
 const url = "https://fakestoreapi.com/products";
 
 export default function Products() {
-  const { data, isLoading, error } = useFetch(url);
-  const products = data?.filter((item) => item.category !== "electronics");
+  const { data: products, isLoading, error } = useFetch(url);
 
   return (
     <main className={styles.container}>

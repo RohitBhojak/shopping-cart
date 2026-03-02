@@ -15,7 +15,7 @@ const renderNavbar = (route = "/", theme = "light", toggleTheme = vi.fn(), cartS
 describe("Navbar", () => {
   it("renders title", () => {
     renderNavbar();
-    expect(screen.getByRole("heading", { name: /linen/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /shop/i })).toBeInTheDocument();
   });
 
   it("renders navigation links", () => {
