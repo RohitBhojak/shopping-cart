@@ -1,8 +1,9 @@
 import { Outlet } from "react-router";
 import Navbar from "./pages/Navbar";
-import { useEffect, useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 import useTheme from "./hooks/useTheme";
 import cartReducer from "./reducers/cartReducer";
+import useStorage from "./hooks/useStorage";
 
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
@@ -13,18 +14,17 @@ export default function App() {
   );
 
   useTheme(theme);
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+  useStorage(cart);
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
+  const cartSize = Object.keys(cart).reduce((total, item) => total + cart[item], 0);
+
   return (
     <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} cartSize={Object.keys(cart).length} />
+      <Navbar theme={theme} toggleTheme={toggleTheme} cartSize={cartSize} />
       <Outlet context={{ cart, dispatch }} />
     </>
   );
