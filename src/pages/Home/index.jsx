@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router";
+import { NavLink } from "react-router";
 import hero from "../../assets/hero.png";
 import styles from "./Home.module.css";
 
 export default function Home() {
-  const navigate = useNavigate();
   return (
     <main className={styles.container}>
       <div className={styles.textContainer}>
@@ -15,12 +14,9 @@ export default function Home() {
           veniam incidunt architecto. Veritatis earum laudantium blanditiis fuga at. Dolores libero
           aliquam necessitatibus, modi qui error quaerat.
         </p>
-        <button
-          className={styles.btn}
-          onClick={() => navigate("/products", { viewTransition: true })}
-        >
+        <NavLink className={styles.btn} to="/products" viewTransition>
           Shop Now
-        </button>
+        </NavLink>
       </div>
       <div className={styles.imageContainer}>
         <img src={hero} alt="Hero image" />

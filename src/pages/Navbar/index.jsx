@@ -16,7 +16,7 @@ export default function Navbar({ theme, toggleTheme, cartSize }) {
 
   return (
     <nav className={styles.container}>
-      <h1 className={styles.title}>Shop</h1>
+      <h1 className={styles.title}>Vantage</h1>
       <ul className={`${styles.list} ${isOpen ? styles.open : ""}`}>
         <li>
           <NavLink className={styles.listItem} to="/" onClick={closeMenu} viewTransition>
