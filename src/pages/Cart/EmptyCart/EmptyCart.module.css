@@ -7,7 +7,7 @@
   height: 80vh;
 }
 
-.imgContainer {
+.imageContainer {
   width: 500px;
   height: auto;
 }
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .imgContainer {
+  .imageContainer {
     width: 90%;
   }
 }

@@ -1,0 +1,50 @@
+.container {
+  padding: 2rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  height: 85vh;
+  align-items: center;
+}
+
+.btn {
+  composes: addBtn from "../../components/QuantityInput/QuantityInput.module.css";
+  font-size: 1.25rem;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.subHeading {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 1rem 1.5rem;
+    gap: 2rem;
+    height: auto;
+    margin-top: 2rem;
+  }
+
+  .heading {
+    font-size: 2.25rem;
+    display: block;
+    text-align: center;
+  }
+
+  .textContainer {
+    text-align: center;
+  }
+}

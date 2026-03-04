@@ -5,7 +5,7 @@ import styles from "./EmptyCart.module.css";
 export default function EmptyCart() {
   return (
     <main className={styles.container}>
-      <div className={styles.imgContainer}>
+      <div className={styles.imageContainer}>
         <img src={emptyCartImg} alt="Empty Cart" />
       </div>
       <h2>Oops! Looks like your cart is empty</h2>
