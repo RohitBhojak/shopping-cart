@@ -8,6 +8,7 @@ const url = "https://fakestoreapi.com/products";
 
 export default function Products() {
   const { data: products, isLoading, error } = useFetch(url);
+  if (error) throw new Error(error);
 
   return (
     <main className={styles.container}>
@@ -15,7 +16,6 @@ export default function Products() {
         Array(15)
           .fill(0)
           .map((_, i) => <ProductItemSkeleton key={i} />)}
-      {error && <div>{error}</div>}
       {products && products.map((product) => <ProductItem key={product.id} product={product} />)}
     </main>
   );

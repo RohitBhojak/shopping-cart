@@ -14,7 +14,7 @@
 
 .btn {
   composes: addBtn from "../../../components/QuantityInput/QuantityInput.module.css";
-  width: 280px;
+  max-width: 280px;
   font-size: 1.25rem;
 }
 

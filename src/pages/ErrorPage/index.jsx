@@ -20,7 +20,7 @@ export default function ErrorPage() {
         <p className={styles.subHeading}>
           Sorry, an unexpected error has occurred.
           <br />
-          <i>
+          <i className={styles.highlight}>
             {isRouteErrorResponse(error)
               ? `${error.status} ${error.statusText}`
               : error.message || "Unknown Error"}

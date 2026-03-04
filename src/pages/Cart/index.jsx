@@ -14,6 +14,7 @@ const shippingCharge = 1; // dollar
 export default function Cart() {
   const { cart } = useOutletContext();
   const { data: cartItems, isLoading, error } = useFetchCart(cart);
+  if (error) throw new Error(error);
 
   if (cart && Object.keys(cart).length === 0) return <EmptyCart />;
 
@@ -24,7 +25,6 @@ export default function Cart() {
     <main className={styles.container}>
       <div className={styles.cartContainer}>
         {isLoading && Object.keys(cart).map((id) => <CartItemSkeleton key={id} />)}
-        {error && <div>{error}</div>}
         {!isLoading &&
           cartItems?.map(
             (product) => product.id in cart && <CartItem product={product} key={product.id} />,
