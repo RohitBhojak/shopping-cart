@@ -5,16 +5,21 @@
   justify-content: center;
   gap: 2rem;
   height: 80vh;
+  padding: 1.5rem;
 }
 
 .imageContainer {
+  aspect-ratio: 1280 / 714;
   width: 500px;
   height: auto;
 }
 
 .btn {
-  composes: addBtn from "../../../components/QuantityInput/QuantityInput.module.css";
-  max-width: 280px;
+  composes: btn from "../../../components/QuantityInput/QuantityInput.module.css";
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: min(300px, 100%);
   font-size: 1.25rem;
 }
 
